@@ -7,8 +7,10 @@ $(document).ready(function(){
   var highscores;
   var lowestHighscore = 1000;
 
-  fb.on('value', function(dataSnapshot) {
+  var query = fb.orderByValue();
+  query.on('value', function(dataSnapshot) {
     highscores = dataSnapshot.val();
+    console.log(highscores);
   });
 
   var score = 0;
@@ -27,14 +29,18 @@ $(document).ready(function(){
         clearInterval(populate);
 
 
-        for(var key in highscores){
+        for (var key in highscores){
           if (highscores[key] < lowestHighscore) {
             lowestHighscore = highscores[key];
             lowestHighscoreKey = key;
           }
         }
-        if (score > lowestHighscore){
-          fb.push({ "Jimmy": score });
+
+        if (score > lowestHighscore) {
+          delete highscores[lowestHighscore];
+          var username = prompt('Enter your name');
+          highscores[username] = score;
+          fb.set(highscores);
         }
 
         console.log(lowestHighscoreKey + ": " + lowestHighscore);
