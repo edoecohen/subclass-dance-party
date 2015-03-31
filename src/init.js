@@ -31,5 +31,10 @@ $(document).ready(function(){
 
   });
 
+  $('.dancer').on('click', function(event){
+
+  });
+
+
 });
 

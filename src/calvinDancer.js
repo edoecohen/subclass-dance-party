@@ -1,6 +1,6 @@
 var makeCalvinDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<img src="gifs/calvin.gif" class="calvin"></img>');
+  this.$node = $('<img src="images/calvin.gif" class="calvin"></img>');
   this.setPosition(top, left);
 };
 

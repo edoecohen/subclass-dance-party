@@ -1,6 +1,6 @@
 var makeDogDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<img src="gifs/dog.gif" class="dog"></img>');
+  this.$node = $('<div class="dancer"><img src="images/dog.gif" class="dog"><img src="images/blood.gif" class="blood"></img></img></div');
   this.setPosition(top, left);
 };
 
