@@ -1,6 +1,6 @@
 var makeFoxDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<img src="gifs/fox.gif" class="dog"></img>');
+  this.$node = $('<img src="gifs/fox.gif" class="fox"></img>');
   this.setPosition(top, left);
 };
 
