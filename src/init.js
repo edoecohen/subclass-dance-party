@@ -31,9 +31,32 @@ $(document).ready(function(){
 
   });
 
-  $('.dancer').on('click', function(event){
+  var blood = new Image();
+  blood.src = "images/bloodOnce.gif";
 
-  });
+  $(document).on('click', '.hannah', function(e){
+    $(this).parent().find('.blood').show();
+
+    setTimeout(function(){
+        $(this).parent().find('.blood').fade();
+      },1000);
+    
+    var interval = null;
+    var counter = 0;
+    var $this = $(this);
+    clearInterval(interval);
+ 
+    interval = setInterval(function(){
+        if (counter != -360) {
+            counter -= 1;
+            $this.css({
+                MozTransform: 'rotate(-' + -counter + 'deg)',
+                WebkitTransform: 'rotate(' + -counter + 'deg)',
+                transform: 'rotate(' + -counter + 'deg)'
+            }).animate({left: '+=' + counter + 'px'}, 0.10);
+        }
+    }, 0.001);
+});
 
 
 });

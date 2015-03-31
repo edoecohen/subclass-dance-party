@@ -26,22 +26,27 @@ body, a:link, a:visited, a:active {
   background-color: #777;
 }
 .dancer {
-  position:absolute;
+  position: absolute;
 }
 .dog {
   /*background-image: url('./gifs/dog.gif');*/
-  position:absolute;
+  position: absolute;
   width: 100px;
 }
 .fox {
-  position:absolute;
+  position: absolute;
   width: 200px;
 }
 .calvin {
-  position:absolute;
+  position: absolute;
   width: 300px;
 }
+.hannah {
+  position: absolute;
+  width: 200px;
+}
 .blood {
+  display: none;
   position: absolute;
   width: 150px;
   left: -35px;
