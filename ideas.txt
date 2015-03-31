@@ -1,5 +1,8 @@
 ideas
-- Track score
-- Audio (song, sound effects - gun, hit)
+
 - Countdown
+- Format the top bar (remove buttons - add div container for score / countdown)
+-
+- Audio (song, sound effects - gun, hit)
 - Game over alert
+- Line up

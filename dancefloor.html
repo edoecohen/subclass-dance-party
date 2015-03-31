@@ -3,6 +3,7 @@
   <head>
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
@@ -10,14 +11,12 @@
     <script src="src/foxDancer.js"></script>
     <script src="src/calvinDancer.js"></script>
     <script src="src/hannahDancer.js"></script>
+
   </head>
   <body>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeDogDancer">Add a Dog dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeFoxDancer">Add a Fox dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeCalvinDancer">Add a Calvin dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeHannahDancer">Add a Hannah dancer</a>
+      <div class="score">0</div>
+      <div class="timer">60</div>
     </div>
     <script src="src/init.js"></script>
   </body>

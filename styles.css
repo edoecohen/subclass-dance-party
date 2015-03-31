@@ -7,7 +7,7 @@ body {
   font-size: 18px;
 }
 body:hover{
-  cursor: url(images/crosshair.png), auto;
+  cursor: url(images/crosshair.png) 75 60, auto;
 }
 body, a:link, a:visited, a:active {
   color: lightblue;
