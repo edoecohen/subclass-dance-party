@@ -1,0 +1,5 @@
+ideas
+- Track score
+- Audio (song, sound effects - gun, hit)
+- Countdown
+- Game over alert

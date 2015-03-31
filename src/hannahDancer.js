@@ -1,6 +1,6 @@
 var makeHannahDancer = function(top, left, timeBetweenSteps) {
+  this.imageName = "hannah";
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<div class="dancer"><img src="images/hannah.gif" class="hannah"><image src="images/blood.png" class="blood"/></img></img></div');
   this.setPosition(top, left);
 };
 
