@@ -66,13 +66,13 @@ body, a:link, a:visited, a:active {
   left: -35px;
 }
 #gameover {
+  display: none;
   position: absolute;
   left: 40%;
   top: 20%;
   background-color: #444;
   width: 340px;
   height: 300px;
-  display: block;
   z-index: 2;
   border-radius: 10px;
   padding: 30px;
@@ -87,6 +87,9 @@ body, a:link, a:visited, a:active {
 }
 #gameover form {
   margin: 20px 0 0 20px;
+}
+.newHighscore {
+  display: none;
 }
 .scoreBoard {
   float: right;

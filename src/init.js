@@ -20,39 +20,63 @@ $(document).ready(function(){
   });
 
   var score = 0;
-  var timer = 3;
+  var timer = 20;
 
   var makers = ['makeDogDancer', 'makeFoxDancer', 'makeCalvinDancer', 'makeHannahDancer' ];
 
   var timerId;
   var countDown = function(){
+
+    // TIMER
     timerId = setInterval(function(){
       timer--;
       $('.timer').text(timer);
+
+      // TIMER REACHES ZERO
       if (timer === 0) {
+
+        $('#gameover').show();
 
         clearInterval(timerId);
         clearInterval(populate);
 
-        console.log(highscores);
-        highscores = sortHighscores();
-
+        var username;
+        // NEW HIGHSCORE
         for (var key in highscores){
-          $('.highScores').append('<li>' + key +
-            '<span class="scoreBoard">' + highscores[key] +
-            '</span></li>');
+
           if (highscores[key] < lowestHighscore) {
             lowestHighscore = highscores[key];
             lowestHighscoreKey = key;
           }
         }
-
-        console.log("highscores: " + JSON.stringify(highscores));
-
         if (score > lowestHighscore) {
-          delete highscores[lowestHighscoreKey];
-          var username = prompt('Enter your name');
-          highscores[username] = score;
+          $('.newHighscore').show();
+          $('.yourScore').text(score);
+
+          $('.newHighscore form').submit(function(event){
+            event.preventDefault();
+            username = $(this).find('input').val();
+            console.log(username);
+            $('.newHighscore').hide();
+
+            delete highscores[lowestHighscoreKey];
+            highscores[username] = score;
+            highscores = sortHighscores();
+            appScores();
+            fb.set(highscores);
+          });
+        }
+        else {
+          highscores = sortHighscores();
+          appScores();
+        }
+
+        function appScores(){
+          for (var key in highscores){
+            $('.highScores').append('<li>' + key +
+              '<span class="scoreBoard">' + highscores[key] +
+              '</span></li>');
+          }
         }
         function sortHighscores() {
           var newHighscores = {};
@@ -71,7 +95,7 @@ $(document).ready(function(){
           }
           return newHighscores;
         };
-      }
+      };
     }, 1000);
   };
   countDown();
