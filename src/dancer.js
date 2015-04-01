@@ -10,7 +10,7 @@ var Dancer = function(top, left, timeBetweenSteps){
 Dancer.prototype.step = function(){
 
   // Requires an extra clock step
-  setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  this.stop = setTimeout(this.step.bind(this), this.timeBetweenSteps);
   // this.step.bind(this) --> returns a function that is bound to the keyword this
   // this.step.bind(this) --> happens before we invoke setTimeout
 
@@ -21,7 +21,6 @@ Dancer.prototype.step = function(){
 };
 
 Dancer.prototype.setPosition = function(top, left){
-
   var styleSettings = {
     top: top,
     left: left

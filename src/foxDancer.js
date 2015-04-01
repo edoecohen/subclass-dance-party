@@ -11,5 +11,9 @@ makeFoxDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
 
   this.$node.animate({top: '+=100px'});
-
+  if(this.$node.position().top > $(window).height()){
+    clearTimeout(this.stop);
+    $(this.$node).hide();
+  };
+  console.log(this.$node.position().top);
 };
