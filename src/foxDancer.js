@@ -8,7 +8,8 @@ makeFoxDancer.prototype = Object.create(Dancer.prototype);
 makeFoxDancer.prototype.constructor = makeFoxDancer;
 
 makeFoxDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
 
-  // makeDancer.prototype.step.call(this);
+  this.$node.animate({top: '+=100px'});
 
 };

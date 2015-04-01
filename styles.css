@@ -17,14 +17,31 @@ body, a:link, a:visited, a:active {
   float:right;
 }
 .topbar {
-  height:32px;
-  background-color: #555;
+  width: 200px;
+  height: 100px;
+  background-color: rgba(85, 85, 85, 0.75);
+  margin: 50px 0 0 50px;
+  z-index: 1000;
+  border-radius: 10px;
+  position: fixed;
+}
+.info {
+  color: white;
+  font-size: 30px;
+  margin: 15px 0 0 15px;
+  display: inline-block;
+}
+.scoreInf {
+  font-weight: bold;
 }
 .title {
   background-color: #777;
 }
 .dancer_con {
   position: absolute;
+}
+.dancer {
+  z-index: 0;
 }
 .dog {
   position: absolute;
@@ -48,3 +65,43 @@ body, a:link, a:visited, a:active {
   width: 150px;
   left: -35px;
 }
+#gameover {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  background-color: #444;
+  width: 340px;
+  height: 300px;
+  display: block;
+  z-index: 2;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+#gameover h1 {
+  color: rgb(160, 255, 160);
+  margin: 20px 0 20px 0;
+}
+#gameover h2 {
+  color: white;
+}
+#gameover form {
+  margin: 20px 0 0 20px;
+}
+.scoreBoard {
+  float: right;
+  margin-right: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

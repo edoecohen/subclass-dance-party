@@ -8,5 +8,6 @@ makeHannahDancer.prototype = Object.create(Dancer.prototype);
 makeHannahDancer.prototype.constructor = makeHannahDancer;
 
 makeHannahDancer.prototype.step = function() {
-
+  Dancer.prototype.step.call(this);
+  this.$node.find('.dancer').toggle();
 };

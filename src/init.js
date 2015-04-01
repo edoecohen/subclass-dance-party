@@ -10,13 +10,19 @@ $(document).ready(function(){
   var query = fb.orderByValue();
   query.on('value', function(dataSnapshot) {
     highscores = dataSnapshot.val();
-    console.log(highscores);
+    // console.log(highscores);
+    // for (var key in highscores) {
+    //   console.log(highscores[key] + ': ' + key)
+    // }
+    // dataSnapshot.forEach(function(e) {
+    //   console.log(e.val());
+    // })
   });
 
   var score = 0;
-  var timer = 5;
+  var timer = 3;
 
-  var makers = [ 'makeDogDancer', 'makeFoxDancer', 'makeCalvinDancer', 'makeHannahDancer' ];
+  var makers = ['makeDogDancer', 'makeFoxDancer', 'makeCalvinDancer', 'makeHannahDancer' ];
 
   var timerId;
   var countDown = function(){
@@ -24,30 +30,47 @@ $(document).ready(function(){
       timer--;
       $('.timer').text(timer);
       if (timer === 0) {
-        alert('game over!');
+
         clearInterval(timerId);
         clearInterval(populate);
 
+        console.log(highscores);
+        highscores = sortHighscores();
 
         for (var key in highscores){
+          $('.highScores').append('<li>' + key +
+            '<span class="scoreBoard">' + highscores[key] +
+            '</span></li>');
           if (highscores[key] < lowestHighscore) {
             lowestHighscore = highscores[key];
             lowestHighscoreKey = key;
           }
         }
 
+        console.log("highscores: " + JSON.stringify(highscores));
+
         if (score > lowestHighscore) {
-          delete highscores[lowestHighscore];
+          delete highscores[lowestHighscoreKey];
           var username = prompt('Enter your name');
           highscores[username] = score;
-          fb.set(highscores);
         }
+        function sortHighscores() {
+          var newHighscores = {};
 
-        console.log(lowestHighscoreKey + ": " + lowestHighscore);
-
-
-
-
+          while (Object.keys(highscores).length > 0) {
+            var highestScore = -1;
+            var highestKey = -1;
+            for(var key in highscores) {
+              if (highscores[key] > highestScore) {
+                highestScore = highscores[key];
+                highestKey = key;
+              }
+            }
+            newHighscores[highestKey] = highestScore;
+            delete highscores[highestKey];
+          }
+          return newHighscores;
+        };
       }
     }, 1000);
   };
@@ -66,13 +89,18 @@ $(document).ready(function(){
     );
     $('body').append(dancer.$node);
     var dancer =  makeDogDancer;
+
   };
-  var populate = setInterval(autoPopulate, 600);
+
+  var popSpeed = 1000;
+  var populate = setInterval(autoPopulate, popSpeed);
 
 
   var onTarget = function(){
     $(document).on('click', '.dancer', function(e){
       score++;
+
+
       $('.score').html(score);
       console.log(score);
       $(this).parent().find('.blood').show();

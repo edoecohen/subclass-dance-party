@@ -1,8 +1,16 @@
 ideas
 
-- Countdown
+// Firebase
+- For the first 5 games --> POST to Firebase - name / score
+- Upon game load, GET scores from Firebase
+- If end score > highscores --> ask user for name
+- Show end slide of Highscores
+
+- If end score < highscores --> Alert Game Over & Show Highscores & Try Again button
+
+
 - Format the top bar (remove buttons - add div container for score / countdown)
+- Game over alert
 -
 - Audio (song, sound effects - gun, hit)
-- Game over alert
 - Line up

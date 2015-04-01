@@ -11,12 +11,28 @@
     <script src="src/foxDancer.js"></script>
     <script src="src/calvinDancer.js"></script>
     <script src="src/hannahDancer.js"></script>
-
   </head>
   <body>
     <div class="topbar">
-      <div class="score">0</div>
-      <div class="timer">60</div>
+      <div class="info scoreInf">Score: <span class="score">0</span></div>
+      <div class="info">Time: <span class="timer">60</span></div>
+    </div>
+
+    <div id="gameover">
+      <h1>Game Over!</h1>
+      <h2>New high score: <span class="yourScore"></span></h2>
+      <div class="newHighscore">
+        <form>
+          <input type="text" placeholder="Your name?">
+          <button>Submit</button>
+        </form>
+      </div>
+
+      <div class="highScoreCon">
+        <h3>Top 5</h3>
+        <ol class="highScores">
+        </ol>
+      </div>
     </div>
     <script src="src/init.js"></script>
   </body>
